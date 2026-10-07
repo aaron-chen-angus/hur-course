@@ -3087,6 +3087,137 @@ select.p12-in option{background:#04101c;color:var(--text)}
 @media (min-width:900px){.p13r-grid.two{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}.p13r-verdict{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:center}.p13r-card small{font-size:.55rem}}
 @media (max-width:520px){.p13r-cards{grid-template-columns:1fr}.p13r-card small{min-height:0}.p13r-brow{grid-template-columns:78px 1fr 62px}.p13r-wrow,.p13r-wh{grid-template-columns:78px 1fr}}
 @media (prefers-reduced-motion:reduce){.p13r-bf,.p13r-wb span{transition:none}.p13r-out.show .p13r-sec,.p13r-out.show .p13r-verdict{animation:none}}
+
+/* ============ PAGE 14 ADD-ON: FALLSAFE+ RESULTS ANALYSER (scoped) ============ */
+.p14f{--ok:#5fd39a;--wa:#ffd23f;--fl:#ff7a7a;position:relative;margin-top:22px;padding:16px 16px 18px;background:rgba(2,5,11,.84);border:1px solid rgba(31,214,255,.5);box-shadow:0 0 28px rgba(31,214,255,.12),0 10px 40px rgba(0,0,0,.45);text-align:left;container:p14f / inline-size}
+.p14f-pc{position:absolute;left:-1px;top:-1px;width:16px;height:16px;border-top:3px solid var(--orange);border-left:3px solid var(--orange);pointer-events:none}
+.p14f-hd{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:flex-end;justify-content:space-between;margin-bottom:12px}
+.p14f-hd h3{margin:0 0 3px;font-family:var(--display);font-weight:900;font-size:clamp(.95rem,4.4vw,1.2rem);letter-spacing:.14em;color:var(--blue);text-shadow:0 0 14px var(--blue-dim)}
+.p14f-sub{margin:0;font-family:var(--display);font-weight:700;font-size:.58rem;letter-spacing:.14em;line-height:1.5;color:var(--orange)}
+.p14f-priv{margin:0;display:flex;align-items:center;gap:8px;font-size:1rem;line-height:1.25;color:var(--muted);max-width:520px}
+.p14f-priv svg{flex:none;width:18px;height:18px;fill:none;stroke:var(--blue);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.p14f-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+.p14f-slot{position:relative;display:flex;flex-direction:column;gap:6px;padding:10px 12px;border:1px dashed var(--blue-dim);background:rgba(31,214,255,.04);min-width:0;transition:border-color .25s,background .25s}
+.p14f-slot.over{border-color:var(--orange);background:rgba(255,138,31,.08)}
+.p14f-slot.ok{border:1px solid rgba(95,211,154,.7);background:rgba(95,211,154,.07)}
+.p14f-slot.bad{border:1px solid rgba(255,122,122,.7)}
+.p14f-sn{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:.56rem;letter-spacing:.1em;line-height:1.35;color:var(--text)}
+.p14f-ck{flex:none;width:20px;height:20px;border:1.5px solid var(--blue-dim);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.p14f-ck svg{width:12px;height:12px;fill:none;stroke:#02050b;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.p14f-slot.ok .p14f-ck{background:var(--ok);border-color:var(--ok)}
+.p14f-slot.ok .p14f-ck svg{opacity:1}
+.p14f-opt{margin-left:auto;font-size:.46rem;letter-spacing:.1em;color:var(--muted);border:1px solid rgba(132,161,182,.4);padding:2px 5px}
+.p14f-sf{min-height:2.5em;font-size:.98rem;line-height:1.25;color:var(--muted);word-break:break-word}
+.p14f-slot.ok .p14f-sf{color:var(--ok)}
+.p14f-slot.bad .p14f-sf{color:var(--orange)}
+.p14f-sb{display:flex;gap:6px;align-items:center;margin-top:auto}
+.p14f-btn{font-family:var(--display);font-weight:800;font-size:.58rem;letter-spacing:.12em;color:#02050b;background:var(--blue);border:0;padding:10px 14px;min-height:40px;cursor:pointer;box-shadow:0 0 14px rgba(31,214,255,.3);transition:background .2s,box-shadow .2s}
+.p14f-btn:hover:not(:disabled){background:var(--orange);box-shadow:0 0 16px rgba(255,138,31,.45)}
+.p14f-btn:disabled{opacity:.35;cursor:not-allowed;box-shadow:none}
+.p14f-btn.ghost{background:transparent;color:var(--blue);border:1px solid var(--blue-dim);box-shadow:none}
+.p14f-btn.ghost:hover:not(:disabled){background:rgba(255,138,31,.08);color:var(--orange);border-color:var(--orange)}
+.p14f-btn.sm{padding:7px 10px;min-height:34px;font-size:.52rem}
+.p14f-bar{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-top:12px}
+.p14f-cnt{font-family:var(--display);font-size:.6rem;letter-spacing:.12em;color:var(--blue)}
+.p14f-msg{flex:1 1 100%;min-height:1.2em;font-size:1.06rem;line-height:1.3;color:var(--orange)}
+.p14f-out{margin-top:18px}
+.p14f-h{margin:0 0 10px;font-family:var(--display);font-weight:800;font-size:.66rem;letter-spacing:.16em;color:var(--blue);display:flex;align-items:center;gap:10px}
+.p14f-h i{font-style:normal;color:var(--orange)}
+.p14f-h::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(31,214,255,.35),transparent)}
+.p14f-sec{margin-top:26px}
+.p14f-note{margin:8px 0 0;font-size:.98rem;line-height:1.3;color:var(--muted)}
+.p14f-note b{color:var(--text);font-weight:600}
+.s-ok{--cc:var(--ok)}.s-watch{--cc:var(--wa)}.s-flag{--cc:var(--fl)}.s-info{--cc:var(--muted)}
+/* hero */
+.p14f-hero{display:grid;grid-template-columns:1fr;gap:10px;align-items:center;padding:16px;border:1px solid var(--blue-dim);background:linear-gradient(135deg,rgba(31,214,255,.07),rgba(2,8,16,.6));border-left:4px solid var(--vc,var(--blue))}
+.p14f-who{margin:0 0 6px;font-family:var(--display);font-size:.56rem;letter-spacing:.12em;color:var(--muted)}
+.p14f-who b{color:var(--text);font-weight:700}
+.p14f-vt{margin:0;font-family:var(--display);font-weight:900;font-size:clamp(1.15rem,4.4vw,1.9rem);letter-spacing:.08em;line-height:1.15;color:var(--vc,var(--blue));text-shadow:0 0 18px var(--vg,transparent)}
+.p14f-vs{margin:6px 0 0;font-size:1.18rem;line-height:1.3;color:var(--text)}
+.p14f-vs2{margin:6px 0 0;font-size:1.02rem;line-height:1.3;color:var(--muted)}
+.p14f-kp{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.p14f-k{min-width:92px;padding:8px 12px;border:1px solid rgba(31,214,255,.25);background:rgba(2,8,16,.6);border-top:2px solid var(--cc,var(--muted))}
+.p14f-k b{display:block;font-family:var(--display);font-weight:800;font-size:1.2rem;color:var(--cc,var(--text))}
+.p14f-k span{font-family:var(--display);font-size:.46rem;letter-spacing:.1em;color:var(--muted)}
+.p14f-st{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.p14f-chip{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;font-family:var(--display);font-weight:700;font-size:.48rem;letter-spacing:.1em;color:var(--text);border:1px solid rgba(31,214,255,.25);background:transparent}
+.p14f-chip i{width:7px;height:7px;border-radius:50%;background:var(--cc,var(--muted))}
+button.p14f-chip{cursor:pointer}button.p14f-chip:hover{border-color:var(--orange);color:var(--orange)}
+.p14f-radar{display:block;width:100%;max-width:300px;margin:0 auto;height:auto}
+.p14f-radar text{font-family:var(--display);fill:var(--muted);letter-spacing:.08em}
+.p14f-cap{margin:0;text-align:center;font-family:var(--display);font-size:.44rem;letter-spacing:.12em;color:var(--muted)}
+/* panels */
+.p14f-pn{padding:14px;border:1px solid rgba(31,214,255,.22);background:rgba(2,8,16,.65);min-width:0}
+.p14f-pn>h5{margin:0 0 2px;font-family:var(--display);font-weight:800;font-size:.58rem;letter-spacing:.14em;color:var(--text)}
+.p14f-pn>p.p14f-sb2{margin:0 0 10px;font-size:.98rem;color:var(--muted);line-height:1.25}
+.p14f-two{display:grid;grid-template-columns:1fr;gap:12px}
+/* heatmap */
+.p14f-hm{display:grid;gap:5px;align-items:stretch;grid-template-columns:minmax(80px,1.3fr) repeat(var(--n),minmax(40px,1fr))}
+.p14f-hc{display:flex;align-items:center;justify-content:center;min-height:44px;padding:2px;font-family:var(--display);font-weight:800;font-size:.7rem;letter-spacing:.04em;color:#02050b;border:0;background:var(--cc);opacity:.92;transition:transform .15s,box-shadow .15s}
+button.p14f-hc{cursor:pointer}
+button.p14f-hc:hover,button.p14f-hc:focus-visible{transform:scale(1.06);box-shadow:0 0 0 2px #fff}
+.p14f-hc.e{background:rgba(31,214,255,.06);color:var(--muted);font-weight:400;opacity:1}
+.p14f-hh{display:flex;align-items:flex-end;justify-content:center;text-align:center;font-family:var(--display);font-size:.44rem;letter-spacing:.08em;line-height:1.3;color:var(--muted);padding-bottom:2px}
+.p14f-hr{display:flex;align-items:center;font-family:var(--display);font-weight:700;font-size:.52rem;letter-spacing:.1em;line-height:1.3;color:var(--text)}
+.p14f-lg{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;font-size:.94rem;color:var(--muted)}
+.p14f-lg span{display:inline-flex;align-items:center;gap:6px}.p14f-lg i{width:10px;height:10px;background:var(--cc)}
+.p14f-svg{display:block;width:100%;height:auto}
+.p14f-svg text{font-family:var(--display);fill:var(--muted);letter-spacing:.06em}
+.p14f-svg .dot{cursor:default;transition:r .15s}
+.p14f-svg .dot:hover{stroke:#fff;stroke-width:2}
+/* domain detail */
+.p14f-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.p14f-tab{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:.54rem;letter-spacing:.1em;color:var(--blue);background:transparent;border:1px solid var(--blue-dim);padding:9px 12px;min-height:40px;cursor:pointer;transition:.2s}
+.p14f-tab i{width:9px;height:9px;border-radius:50%;background:var(--cc)}
+.p14f-tab:hover{border-color:var(--orange);color:var(--orange)}
+.p14f-tab[aria-pressed="true"]{background:rgba(31,214,255,.14);border-color:var(--blue);color:var(--text);box-shadow:inset 0 -2px 0 var(--cc)}
+.p14f-dd{font-size:1.02rem;line-height:1.3;color:var(--muted);margin:0 0 6px}
+.p14f-mr{display:grid;grid-template-columns:10px minmax(0,1.3fr) minmax(90px,1fr) 88px;gap:2px 12px;align-items:center;padding:8px 6px;border-top:1px solid rgba(31,214,255,.1);transition:background .3s}
+.p14f-mr.hl{background:rgba(255,138,31,.1)}
+.p14f-dot{width:10px;height:10px;border-radius:50%;background:var(--cc)}
+.p14f-ml{font-size:1.06rem;line-height:1.2;color:var(--text)}
+.p14f-ml small{font-family:var(--display);font-size:.42rem;letter-spacing:.1em;color:var(--muted);margin-left:8px}
+.p14f-zb{position:relative;display:block;height:10px;background:rgba(31,214,255,.06)}
+.p14f-zb i{position:absolute;top:0;bottom:0;opacity:.5}
+.p14f-zb i.g{background:var(--ok)}.p14f-zb i.a{background:var(--wa)}.p14f-zb i.r{background:var(--fl)}
+.p14f-zb b{position:absolute;top:-4px;bottom:-4px;width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 6px rgba(255,255,255,.8)}
+.p14f-zb u{position:absolute;top:-3px;bottom:-3px;width:1px;background:rgba(217,237,246,.55)}
+.p14f-mv{font-family:var(--display);font-weight:700;font-size:.64rem;color:var(--cc,var(--text));text-align:right;white-space:nowrap}
+.p14f-mw{grid-column:2/-1;font-size:.94rem;line-height:1.25;color:var(--muted)}
+/* focus */
+.p14f-fg{display:grid;grid-template-columns:1fr;gap:10px}
+.p14f-fc{padding:12px 14px;border:1px solid rgba(31,214,255,.22);background:rgba(2,8,16,.65);border-left:3px solid var(--cc)}
+.p14f-fc h5{margin:0 0 6px;display:flex;justify-content:space-between;gap:8px;font-family:var(--display);font-weight:800;font-size:.6rem;letter-spacing:.12em;color:var(--text)}
+.p14f-fc h5 span{color:var(--cc);font-size:.5rem}
+.p14f-fc ul{margin:0 0 8px;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:5px}
+.p14f-fc li{padding:3px 8px;font-size:.96rem;color:var(--text);border:1px solid color-mix(in srgb,var(--fl) 55%,transparent);background:color-mix(in srgb,var(--fl) 10%,transparent)}
+.p14f-fc li.w{border-color:color-mix(in srgb,var(--wa) 55%,transparent);background:color-mix(in srgb,var(--wa) 10%,transparent)}
+.p14f-fc p{margin:0;font-size:1rem;line-height:1.3;color:var(--muted)}
+.p14f-fc p b{color:var(--orange);font-family:var(--display);font-size:.46rem;letter-spacing:.12em;margin-right:6px}
+/* tiles */
+.p14f-tl{display:grid;gap:8px}
+.p14f-tile{padding:10px 12px;border:1px solid rgba(31,214,255,.2);border-left:3px solid var(--cc);background:rgba(2,8,16,.6)}
+.p14f-tile b{display:flex;justify-content:space-between;gap:8px;font-family:var(--display);font-size:.52rem;letter-spacing:.1em;color:var(--text)}
+.p14f-tile b span{color:var(--cc)}
+.p14f-tile p{margin:4px 0 0;font-size:.98rem;line-height:1.28;color:var(--muted)}
+.p14f-det{margin-top:12px;border:1px solid rgba(31,214,255,.2)}
+.p14f-det summary{cursor:pointer;padding:10px 12px;font-family:var(--display);font-size:.54rem;letter-spacing:.12em;color:var(--blue);list-style:none;min-height:40px;display:flex;align-items:center}
+.p14f-det summary::-webkit-details-marker{display:none}
+.p14f-det summary::before{content:"+";margin-right:10px;color:var(--orange)}
+.p14f-det[open] summary::before{content:"–"}
+.p14f-det>div{padding:0 12px 12px;font-size:1rem;line-height:1.35;color:var(--muted)}
+.p14f-det p{margin:0 0 8px}.p14f-det b{color:var(--text)}
+.p14f-dq{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.p14f-dq li{position:relative;padding-left:18px;color:var(--text)}
+.p14f-dq li::before{content:"";position:absolute;left:2px;top:.55em;width:8px;height:8px;background:var(--wa);transform:rotate(45deg)}
+.p14f-disc{margin:14px 0 0;font-size:.94rem;line-height:1.35;color:var(--muted)}
+.p14f-disc b{color:var(--orange);font-family:var(--display);font-size:.5rem;letter-spacing:.12em;margin-right:6px}
+.p14f-act{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;margin-bottom:10px}
+.p14f-out.show .p14f-sec,.p14f-out.show .p14f-hero{animation:p14fin .5s ease both}
+@keyframes p14fin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@container p14f (min-width:900px){.p14f-hero{grid-template-columns:minmax(0,1.6fr) minmax(0,.8fr)}.p14f-two{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}.p14f-two.eq{grid-template-columns:1fr 1fr}.p14f-fg{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@container p14f (max-width:560px){.p14f-slots{grid-template-columns:1fr 1fr}.p14f-mr{grid-template-columns:10px 1fr auto}.p14f-mr .p14f-zb{grid-column:2/-1;grid-row:2}.p14f-mw{grid-row:3}.p14f-hr{font-size:.42rem;letter-spacing:.04em}.p14f-hm{gap:3px;grid-template-columns:58px repeat(var(--n),minmax(0,1fr))}.p14f-hc{min-height:38px;font-size:.54rem}.p14f-hh{font-size:.36rem;letter-spacing:.02em}}
+@media (prefers-reduced-motion:reduce){.p14f-hc,.p14f-svg .dot{transition:none}.p14f-out.show .p14f-sec,.p14f-out.show .p14f-hero{animation:none}}
 </style>
 </head>
 <body>
@@ -4364,6 +4495,25 @@ select.p12-in option{background:#04101c;color:var(--text)}
         <p class="p14-micro"><b>ASSESS → UNDERSTAND → ACT</b><span>TURN FALL-RISK INSIGHTS INTO ACTION.</span></p>
       </section>
     </div>
+
+    <section class="p14f noswipe" id="p14f" aria-labelledby="p14f-t">
+      <span class="p14f-pc" aria-hidden="true"></span>
+      <header class="p14f-hd">
+        <div>
+          <h3 id="p14f-t">FALLSAFE+ RESULTS ANALYSER</h3>
+          <p class="p14f-sub">UPLOAD YOUR FALLSAFE+ REPORTS // FALL-RISK PROFILE BY BALANCE, PROPRIOCEPTION AND COORDINATION</p>
+        </div>
+        <p class="p14f-priv"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Private: PDFs are read inside your browser only. Nothing is uploaded or stored.</span></p>
+      </header>
+      <div class="p14f-slots" id="p14f-slots"></div>
+      <div class="p14f-bar">
+        <button type="button" class="p14f-btn" id="p14f-go" disabled>GENERATE ANALYSIS</button>
+        <button type="button" class="p14f-btn ghost" id="p14f-clr">CLEAR ALL</button>
+        <span class="p14f-cnt" id="p14f-cnt" role="status" aria-live="polite"></span>
+        <span class="p14f-msg" id="p14f-msg" role="status" aria-live="polite"></span>
+      </div>
+      <div class="p14f-out" id="p14f-out" hidden></div>
+    </section>
   </div>
 </section>
 <section class="page" id="p15" tabindex="-1" data-custom data-nav="SMILE" data-title="Showcase of Preventive Health Tech: SMILE" data-plan="">
@@ -7543,6 +7693,375 @@ const HURYT=(()=>{
   root.addEventListener("drop",e=>{ if(!(e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files.length)) return; e.preventDefault(); drop.classList.remove("over"); handle(e.dataTransfer.files[0]); });
   // clicks inside the reader never change slides; the deck's own bottom PREVIOUS / NEXT buttons are outside it and stay untouched
   box.addEventListener("click",e=>{ e.stopPropagation(); });
+})();
+
+
+
+/* ============ PAGE 14 ADD-ON: FALLSAFE+ RESULTS ANALYSER ============ */
+(() => {
+  const root=document.getElementById("p14"), box=document.getElementById("p14f"); if(!root||!box) return;
+  const $=id=>document.getElementById(id);
+  const slotsEl=$("p14f-slots"), goBtn=$("p14f-go"), clrBtn=$("p14f-clr"), cnt=$("p14f-cnt"), msg=$("p14f-msg"), out=$("p14f-out");
+  const RM=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const num=s=>parseFloat(String(s).replace(",","."));
+  const fx=(n,d=1)=>Number(n).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
+  const CK='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>';
+
+  const TESTS=[
+    {k:"bz",  label:"BLAZEPOD",              rx:/blazepod/i},
+    {k:"db",  label:"DYNAMIC BALANCE EMG",   rx:/dynamic balance emg/i},
+    {k:"ttt", label:"TERRAIN TREK EMG",      rx:/terrain trek/i},
+    {k:"fsst",label:"FSST",                  rx:/\bfsst\b/i},
+    {k:"mmse",label:"MMSE",                  rx:/\bmmse\b/i, opt:true},
+    {k:"mvc", label:"MVC LEG STRENGTH",      rx:/mvc leg strength/i},
+    {k:"sts", label:"SIT-TO-STAND",          rx:/sit-to-stand/i},
+    {k:"tug", label:"TUG",                   rx:/\btug\b/i}
+  ];
+  const REQ=TESTS.filter(t=>!t.opt).length;
+
+  /* ---------- reading ---------- */
+  const N="(-?\\d+(?:[.,]\\d+)?)";
+  const RX=s=>new RegExp(s.replace(/#/g,N),"i");
+  const G=(T,s)=>{ const m=T.match(RX(s)); return m?num(m[1]):NaN; };
+  const S=(T,re)=>{ const m=T.match(re); return m?m[1].trim():""; };
+  const rmsOf=(T,l)=>{ const m=T.match(new RegExp(l+"\\s*SNR:\\s*"+N+"\\s*dB[^\\n]*?RMS:\\s*"+N,"i")); return m?{snr:num(m[1]),rms:num(m[2])}:null; };
+  const mvcOf=(T,l)=>G(T,l+"\\s*#\\s*%\\s*MVC");
+  const emg=(T,scoreLabel,subs)=>{ const o={score:G(T,scoreLabel+"\\s*#\\s*/\\s*100"),
+      quadSym:G(T,"Quad Symmetry Ratio\\s*#"),calfSym:G(T,"Calf Symmetry Ratio\\s*#"),coact:G(T,"Left Coactivation Index\\s*#"),
+      rms:{lq:rmsOf(T,"Left Quad"),rq:rmsOf(T,"Right Quad"),lc:rmsOf(T,"Left Calf"),rc:rmsOf(T,"Right Calf")},
+      mvc:{lq:mvcOf(T,"Left Quad"),rq:mvcOf(T,"Right Quad"),lc:mvcOf(T,"Left Calf"),rc:mvcOf(T,"Right Calf")},noMvc:/MVC not collected/i.test(T)};
+    for(const k in subs) o[k]=G(T,subs[k]+"\\s*#"); return o; };
+  const PARSE={
+    bz:T=>({score:G(T,"Reaction Score\\s*#\\s*/\\s*100"),faster:G(T,"Faster than\\s*#\\s*%"),slower:G(T,"Slower than\\s*#\\s*%"),norm:G(T,"Peer Norm \\(mean RT\\)\\s*#\\s*ms"),band:S(T,/Risk Band\s*([A-Za-z]+)/i),rt:G(T,"Avg Reaction Time\\s*#\\s*ms"),med:G(T,"Median Rt Ms\\s*#"),cv:G(T,"Rt Cv\\s*#"),hits:G(T,"Total Hits\\s*#"),miss:G(T,"Total Misses\\s*#"),acc:G(T,"Accuracy\\s*#\\s*%"),_p:"score"}),
+    db:T=>({...emg(T,"Dynamic Balance",{stepVar:"Step Variability",gaitSym:"Gait Symmetry",drift:"Lateral Drift",force:"Force Distribution"}),_p:"score"}),
+    ttt:T=>({...emg(T,"Static Balance",{terrain:"Terrain Adaptability",stepH:"Step Height",comp:"Compensatory Movements"}),_p:"score"}),
+    fsst:T=>({risk:S(T,/Fall Risk\s*(Low|Moderate|High)\s*Risk/i),time:G(T,"Time to Complete\\s*#\\s*s"),agility:G(T,"Agility Score\\s*#\\s*/\\s*100"),stability:G(T,"Stability Score\\s*#\\s*/\\s*100"),cv:G(T,"Step Variability CV\\s*#\\s*%"),
+      stepLen:G(T,"Step Length \\(mean\\)\\s*#\\s*m"),stepL:G(T,"Step Length \\(left\\)\\s*#\\s*m"),stepR:G(T,"Step Length \\(right\\)\\s*#\\s*m"),peak:G(T,"Peak Trunk Angle\\s*#"),trunkVel:G(T,"Mean Trunk Ang\\. Velocity\\s*#"),dsr:G(T,"Double-Support Ratio\\s*#\\s*%"),
+      nearFall:S(T,/Near-Fall Event\s*([A-Za-z]+)/i),cw:G(T,"Clockwise \\(stages 1-4\\)\\s*#\\s*s"),acw:G(T,"Anti-clockwise \\(stages 5-8\\)\\s*#\\s*s"),hes:G(T,"Hesitations\\s*#"),touch:G(T,"Line Touches\\s*#"),seq:G(T,"Sequence Errors\\s*#"),_p:"time"}),
+    mmse:T=>{ const m=T.match(/MMSE Score\s*(\d+)\s*\/\s*(\d+)\s*[-–—]?\s*([A-Za-z ]+)/i); const d={}; ["Orientation","Registration","Attention","Recall","Language"].forEach(k=>{ const q=T.match(new RegExp(k+"\\s*(\\d+)\\s*/\\s*(\\d+)","i")); if(q) d[k]=[+q[1],+q[2]]; });
+      return {total:m?+m[1]:NaN,den:m?+m[2]:NaN,label:m?m[3].trim():"",dom:d,_p:"total"}; },
+    mvc:T=>{ const l=T.match(RX("Left MVC\\s*#\\s*kg\\s*\\(#\\w*\\s*percentile\\)")), r=T.match(RX("Right MVC\\s*#\\s*kg\\s*\\(#\\w*\\s*percentile\\)"));
+      return {sym:S(T,/Symmetry Status\s*([A-Za-z]+)/i),asym:G(T,"Asymmetry\\s*#\\s*%"),L:l?num(l[1]):NaN,Lp:l?num(l[2]):NaN,R:r?num(r[1]):NaN,Rp:r?num(r[2]):NaN,calfAsym:G(T,"Calf Asymmetry[^\\n(]*\\(\\s*#\\s*%\\s*\\)"),calfL:G(T,"Left Calf MVC\\s*#\\s*kg"),calfR:G(T,"Right Calf MVC\\s*#\\s*kg"),_p:"L"}; },
+    sts:T=>{ const t=T.match(RX("TRANSITION TIMES\\s*Average\\s*#\\s*s\\s*Minimum\\s*#\\s*s\\s*Maximum\\s*#\\s*s\\s*Std Deviation\\s*#\\s*s")), a=[...T.matchAll(new RegExp(RX("Seated\\s*#\\D{0,3}\\s*Transition\\s*#\\D{0,3}\\s*Standing\\s*#").source,"gi"))];
+      return {reps:G(T,"Total Repetitions\\s*#"),dur:G(T,"Total Duration\\s*#\\s*s"),vel:G(T,"Peak Standing Vertical Velocity\\s*#\\s*m/s"),trAvg:t?num(t[1]):NaN,trSd:t?num(t[4]):NaN,trunkTr:a[1]?num(a[1][2]):NaN,_p:"reps"}; },
+    tug:T=>({risk:S(T,/Fall Risk\s*(Low|Moderate|High)\s*Risk/i),prob:G(T,"Probability\\s*#\\s*%"),dur:G(T,"TUG Duration\\s*#\\s*s"),vel:G(T,"Gait Velocity\\s*#\\s*m/s"),stride:G(T,"Avg Stride Length\\s*#\\s*m"),strideT:G(T,"Avg Stride Time\\s*#\\s*s"),
+      lsl:G(T,"Left Stride Length\\s*#\\s*m"),lst:G(T,"Left Stride Time\\s*#\\s*s"),rsl:G(T,"Right Stride Length\\s*#\\s*m"),rst:G(T,"Right Stride Time\\s*#\\s*s"),_p:"dur"})
+  };
+  async function readPdf(file){
+    const lib=await loadLib(); const buf=await file.arrayBuffer();
+    const pdf=await lib.getDocument({data:buf,verbosity:0}).promise; const rows=[];
+    for(let p=1;p<=pdf.numPages;p++){
+      const pg=await pdf.getPage(p), tc=await pg.getTextContent(), it=[];
+      tc.items.forEach(t=>{ if(t.str&&t.str.trim()) it.push({s:t.str.trim(),x:t.transform[4],y:t.transform[5]}); });
+      const rr=[]; it.sort((a,b)=>b.y-a.y||a.x-b.x).forEach(i=>{ const r=rr.find(r=>Math.abs(r.y-i.y)<2.5); if(r) r.it.push(i); else rr.push({y:i.y,it:[i]}); });
+      rr.sort((a,b)=>b.y-a.y).forEach(r=>rows.push(r.it.sort((a,b)=>a.x-b.x).map(i=>i.s).join(" ").replace(/\s+/g," ")));
+    }
+    try{ pdf.destroy(); }catch(e){}
+    return rows;
+  }
+  let libP=null;
+  const b64=id=>{ const el=document.getElementById(id); if(!el) throw new Error("lib"); const bin=atob(el.textContent.trim()), u=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) u[i]=bin.charCodeAt(i); return u; };
+  const loadLib=()=>libP||(libP=new Promise((res,rej)=>{
+    const done=()=>{ try{ if(!window.pdfjsLib.GlobalWorkerOptions.workerSrc) window.pdfjsLib.GlobalWorkerOptions.workerSrc=URL.createObjectURL(new Blob([b64("p13r-lib-worker")],{type:"text/javascript"})); res(window.pdfjsLib); }catch(e){ rej(e); } };
+    if(window.pdfjsLib){ done(); return; }
+    try{ const s=document.createElement("script"); s.src=URL.createObjectURL(new Blob([b64("p13r-lib-main")],{type:"text/javascript"})); s.onload=done; s.onerror=()=>rej(new Error("lib")); document.head.appendChild(s); }catch(e){ rej(e); }
+  }));
+  const idTest=rows=>{ const first=rows.slice(0,4).join(" "); const m=first.match(/FallSafe\+?\s*(.+?)\s*Results/i); const t=m?m[1]:""; return TESTS.find(x=>x.rx.test(t))||null; };
+  const header=rows=>{ const T=rows.slice(0,8).join("\n"); const h=T.match(/Name:\s*(.+?)\s+(\d+)\s*yrs\D{1,6}(Male|Female)\D{1,6}([\d.]+)\s*cm\D{1,6}([\d.]+)\s*kg/i), d=T.match(/(\d{1,2}\s+[A-Za-z]{3}\s+\d{4}),?\s*(\d{1,2}:\d{2})/);
+    return h?{name:h[1].trim(),age:+h[2],sex:h[3][0].toUpperCase()==="M"?"Male":"Female",h:+h[4],w:+h[5],date:d?d[1]+", "+d[2]:""}:null; };
+
+  /* ---------- state + slots ---------- */
+  const st={files:{},subject:null,done:false}; const slotEls={};
+  slotsEl.innerHTML=TESTS.map(t=>`<div class="p14f-slot" id="p14f-s-${t.k}" data-k="${t.k}">
+      <div class="p14f-sn"><span class="p14f-ck">${CK}</span><span>${t.label}</span>${t.opt?'<span class="p14f-opt">OPTIONAL</span>':""}</div>
+      <div class="p14f-sf" id="p14f-f-${t.k}">Not added</div>
+      <div class="p14f-sb"><button type="button" class="p14f-btn sm" data-a="pick" aria-label="Choose the ${t.label} report PDF">CHOOSE PDF</button><button type="button" class="p14f-btn sm ghost" data-a="rm" hidden aria-label="Remove the ${t.label} report">REMOVE</button></div>
+      <input type="file" accept="application/pdf,.pdf" hidden id="p14f-i-${t.k}"></div>`).join("");
+  TESTS.forEach(t=>{ slotEls[t.k]={el:$("p14f-s-"+t.k),f:$("p14f-f-"+t.k),inp:$("p14f-i-"+t.k)}; });
+  const setSlot=(k,state,text)=>{ const s=slotEls[k]; s.el.classList.toggle("ok",state==="ok"); s.el.classList.toggle("bad",state==="bad"); s.f.textContent=text; s.el.querySelector('[data-a="pick"]').textContent=state==="ok"?"REPLACE":"CHOOSE PDF"; s.el.querySelector('[data-a="rm"]').hidden=state!=="ok"; };
+  const refresh=()=>{ const have=TESTS.filter(t=>st.files[t.k]), req=have.filter(t=>!t.opt).length;
+    cnt.textContent=`${have.length} OF ${TESTS.length} ADDED · ${req}/${REQ} REQUIRED`; goBtn.disabled=req<REQ; };
+  const say=(t)=>{ msg.textContent=t||""; };
+  const sk=n=>n.toLowerCase().replace(/[^a-z]/g,"");
+
+  async function addFile(k,file){
+    say("");
+    const t=TESTS.find(x=>x.k===k);
+    if(!(file.type==="application/pdf"||/\.pdf$/i.test(file.name))){ setSlot(k,"bad","That is not a PDF."); return false; }
+    if(file.size>20*1024*1024){ setSlot(k,"bad","File is larger than 20 MB."); return false; }
+    setSlot(k,"",`Reading ${file.name}…`);
+    try{
+      const rows=await readPdf(file), T=rows.join("\n");
+      if(T.replace(/\s/g,"").length<40){ setSlot(k,"bad","No readable text. Please use the original PDF."); return false; }
+      const found=idTest(rows);
+      if(!found){ setSlot(k,"bad","This does not look like a FallSafe+ results report."); return false; }
+      if(found.k!==k){ setSlot(k,"bad",`This is the ${found.label} report. Please add it in the ${found.label} slot.`); return false; }
+      const hd=header(rows), d=PARSE[k](T);
+      if(!hd||!isFinite(d[d._p])){ setSlot(k,"bad","The expected results could not be found in this file."); return false; }
+      const key=sk(hd.name), others=Object.keys(st.files).filter(x=>x!==k);
+      if(others.length&&st.subject&&st.subject!==key){ setSlot(k,"bad","This report belongs to a different person from the other files."); return false; }
+      st.files[k]={name:file.name,d,hd}; if(!others.length||!st.subject) st.subject=key;
+      setSlot(k,"ok",file.name); refresh(); if(st.done) analyse(); return true;
+    }catch(e){ setSlot(k,"bad",e&&e.name==="PasswordException"?"This PDF is password-protected.":(e&&e.message==="lib"?"The PDF reader could not start in this browser.":"This file could not be read.")); return false; }
+  }
+  function removeFile(k){ delete st.files[k]; setSlot(k,"","Not added"); slotEls[k].inp.value=""; if(!Object.keys(st.files).length) st.subject=null; refresh(); if(st.done) analyse(); }
+  async function routeMany(files){
+    for(const f of files){
+      if(!/\.pdf$/i.test(f.name)&&f.type!=="application/pdf"){ say(`"${f.name}" is not a PDF.`); continue; }
+      let rows; try{ rows=await readPdf(f); }catch(e){ say(`"${f.name}" could not be read.`); continue; }
+      const t=idTest(rows); if(!t){ say(`"${f.name}" does not look like a FallSafe+ results report.`); continue; }
+      await addFile(t.k,f);
+    }
+  }
+  slotsEl.addEventListener("click",e=>{ const b=e.target.closest("button[data-a]"); if(!b) return; const k=b.closest(".p14f-slot").dataset.k; if(b.dataset.a==="pick") slotEls[k].inp.click(); else removeFile(k); });
+  TESTS.forEach(t=>{ slotEls[t.k].inp.addEventListener("change",()=>{ const f=slotEls[t.k].inp.files[0]; if(f) addFile(t.k,f); }); });
+  clrBtn.addEventListener("click",()=>{ TESTS.forEach(t=>{ delete st.files[t.k]; setSlot(t.k,"","Not added"); slotEls[t.k].inp.value=""; }); st.subject=null; st.done=false; out.hidden=true; out.innerHTML=""; say(""); refresh(); });
+  goBtn.addEventListener("click",()=>{ st.done=true; analyse(true); });
+  // drag & drop: onto a slot (that test) or anywhere on the slide (routed by report title)
+  const hasFiles=e=>e.dataTransfer&&[...(e.dataTransfer.types||[])].includes("Files");
+  root.addEventListener("dragover",e=>{ if(!hasFiles(e)) return; e.preventDefault(); const s=e.target.closest&&e.target.closest(".p14f-slot"); TESTS.forEach(t=>slotEls[t.k].el.classList.toggle("over",!!s&&s===slotEls[t.k].el)); });
+  root.addEventListener("dragleave",e=>{ if(!e.relatedTarget||!root.contains(e.relatedTarget)) TESTS.forEach(t=>slotEls[t.k].el.classList.remove("over")); });
+  root.addEventListener("drop",e=>{ if(!(e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files.length)) return; e.preventDefault(); TESTS.forEach(t=>slotEls[t.k].el.classList.remove("over"));
+    const files=[...e.dataTransfer.files], s=e.target.closest&&e.target.closest(".p14f-slot");
+    if(s&&files.length===1) addFile(s.dataset.k,files[0]); else routeMany(files); });
+  box.addEventListener("click",e=>{ e.stopPropagation(); });
+
+  /* ---------- analysis model ---------- */
+  const CLUSTERS=[
+    {n:"STATIC BALANCE",desc:"Holding steady with little movement (postural control)."},
+    {n:"DYNAMIC BALANCE",desc:"Staying stable while moving: walking, turning, stepping."},
+    {n:"PROPRIOCEPTION",desc:"Sensing the body and the surface, and adapting steps to terrain."},
+    {n:"COORDINATION",desc:"Reaction speed, step timing, left–right symmetry and sequencing."}
+  ];
+  const SEG={
+    hi:(lo,hi,fl,wa)=>[[lo,fl,"r"],[fl,wa,"a"],[wa,hi,"g"]],
+    lo:(lo,hi,wa,fl)=>[[lo,wa,"g"],[wa,fl,"a"],[fl,hi,"r"]],
+    ratio:()=>[[0,.65,"r"],[.65,.75,"a"],[.75,1.33,"g"],[1.33,1.54,"a"],[1.54,2.2,"r"]]
+  };
+  const stScore=v=>v<40?"flag":v<65?"watch":"ok";
+  const stRatio=v=>(v<.65||v>1.53)?"flag":(v<.75||v>1.33)?"watch":"ok";
+  const stAsym=v=>v>=30?"flag":v>=15?"watch":"ok";
+  const stPct=v=>v<=2?"flag":v<16?"watch":"ok";
+  const ordinal=n=>{ const v=Math.round(n), s=["th","st","nd","rd"], m=v%100; return v+(s[(m-20)%10]||s[m]||s[0]); };
+  const STSCUT={M:[[60,14],[65,12],[70,12],[75,11],[80,10],[85,8],[90,7]],F:[[60,12],[65,11],[70,10],[75,10],[80,9],[85,8],[90,4]]};
+
+  function build(F){
+    const M=[], any=k=>!!F[k], D=k=>F[k]&&F[k].d, hd=Object.values(F)[0].hd;
+    const add=(o)=>{ if(o.val==null||(typeof o.val==="number"&&!isFinite(o.val))) return; M.push(o); };
+    const score=(id,cl,test,label,v,why,ref)=>add({id,cl,test,label,val:v,unit:"/100",dec:1,seg:SEG.hi(0,100,40,65),lo:0,hi:100,st:stScore(v),ref:ref||"Peer score: 50 = average · below 40 flagged · 65 or more good",why});
+    const ttt=D("ttt"), db=D("db"), fs=D("fsst"), tug=D("tug"), bz=D("bz"), sts=D("sts"), mv=D("mvc"), mm=D("mmse");
+    if(ttt){ score("ttt",0,"TTT EMG","Terrain-task muscle score (report calls it Static Balance)",ttt.score,"Muscle activation on the terrain task is well below peers (the report labels this score Static Balance), so quiet standing control may be limited."); }
+    if(fs){ score("fst",0,"FSST","Stability score (trunk control)",fs.stability,"Trunk lean, trunk speed or support timing during stepping were less steady than the FSST reference.");
+      add({id:"peak",cl:0,test:"FSST",label:"Peak trunk lean",val:fs.peak,unit:"°",dec:1,seg:SEG.lo(0,35,20,25),lo:0,hi:35,st:fs.peak>25?"flag":fs.peak>=20?"watch":"ok",ref:"Scoring reaches 0 points at 20° or more; near-fall above 25°",why:"Trunk lean reached the level where the stability score gives no credit."});
+      if(fs.nearFall) add({id:"nf",cl:0,test:"FSST",label:"Near-fall events",val:/none/i.test(fs.nearFall)?0:1,txt:/none/i.test(fs.nearFall)?"None":"Detected",unit:"",dec:0,seg:null,st:/none/i.test(fs.nearFall)?"ok":"flag",ref:"Any near-fall event is flagged",why:"A balance-recovery event was recorded during stepping."}); }
+    if(db){ score("db",1,"DB EMG","Muscle-control score on dynamic balance",db.score,"Muscle activation while moving is well below peers (symmetry, quad–calf pattern or co-activation)."); score("force",1,"DB EMG","Force distribution",db.force,"Load sharing between the legs while moving was uneven."); }
+    if(tug){
+      add({id:"tugt",cl:1,test:"TUG",label:"TUG time",val:tug.dur,unit:"s",dec:2,seg:SEG.lo(0,20,12,12),lo:0,hi:20,st:tug.dur>12?"flag":"ok",ref:"FallSafe+ flags more than 12 s",why:"Getting up, walking, turning and sitting took longer than the FallSafe+ cut-off."});
+      add({id:"tugv",cl:1,test:"TUG",label:"Gait velocity",val:tug.vel,unit:"m/s",dec:2,seg:SEG.hi(0,1.6,.8,1.0),lo:0,hi:1.6,st:tug.vel<.8?"flag":tug.vel<1?"watch":"ok",ref:"Below 1.0 m/s is a cited risk threshold; below 0.8 m/s = household-level walking",why:"Walking speed is in the range linked with higher fall risk in older adults."});
+      add({id:"tugs",cl:1,test:"TUG",label:"Average stride length",val:tug.stride,unit:"m",dec:2,seg:SEG.hi(0,1.6,.64,1.1),lo:0,hi:1.6,st:tug.stride<=.64?"flag":tug.stride<1.1?"watch":"ok",ref:"About 1.1–1.4 m is typical; 0.64 m or less is linked with falls",why:"Short strides suggest a cautious or restricted gait."}); }
+    if(fs) add({id:"ftm",cl:1,test:"FSST",label:"FSST completion time",val:fs.time,unit:"s",dec:1,seg:SEG.lo(5,20,10,15),lo:5,hi:20,st:fs.time>15?"flag":fs.time>=10?"watch":"ok",ref:"Under 10 s low · 10–15 s moderate · over 15 s high",why:"Multi-directional stepping was slower than the FSST low-risk band."});
+    if(sts){ const age=hd.age, tb=STSCUT[hd.sex==="Male"?"M":"F"]; let cut=tb[0][1]; tb.forEach(r=>{ if(age>=r[0]) cut=r[1]; });
+      const below=sts.reps<cut;
+      add({id:"sts",cl:1,test:"STS",label:"Chair stands in 30 s",val:sts.reps,unit:"reps",dec:0,seg:SEG.hi(0,30,cut,cut),lo:0,hi:30,st:below?(age>=60?"flag":"watch"):"ok",ref:age>=60?`Below ${cut} is below average for age (Rikli & Jones)`:`No validated band under 60; compared with the 60–64 cut-off (${cut})`,why:"Fewer chair stands than the reference suggests limited lower-limb strength or power."}); }
+    if(ttt){ score("terr",2,"TTT EMG","Terrain adaptability",ttt.terrain,"Muscle activity did not adapt smoothly across different terrain, a sign of weaker surface-sensing and adjustment.");
+      score("steph",2,"TTT EMG","Step height control",ttt.stepH,"Step clearance control was limited."); score("comp",2,"TTT EMG","Compensatory movements",ttt.comp,"Extra corrective movements were needed to stay balanced."); }
+    if(db) score("drift",2,"DB EMG","Lateral drift control",db.drift,"Sideways drift suggests limited position sense during walking.");
+    if(bz) score("bz",3,"BlazePod","Visuo-motor reaction score",bz.score,"Choice reaction and reach were slower than peers.","Peer score: 65 or more = faster than peers · below 40 = high risk");
+    if(fs){ score("agil",3,"FSST","Agility score",fs.agility,"Stepping agility, timing or errors fell short of the FSST reference.");
+      add({id:"cv",cl:3,test:"FSST",label:"Step-time variability (CV)",val:fs.cv,unit:"%",dec:1,seg:SEG.lo(0,60,20,20),lo:0,hi:60,st:fs.cv>20?"flag":"ok",ref:"Above 20% is an elevated-risk flag",why:"Step timing was very irregular. Camera step detection can inflate this, so confirm by observation."});
+      const ev=(fs.hes||0)+(fs.touch||0)+(fs.seq||0);
+      add({id:"ev",cl:3,test:"FSST",label:"Hesitations, line touches, sequence errors",val:ev,unit:"events",dec:0,seg:[[0,.5,"g"],[.5,8,"a"]],lo:0,hi:8,st:ev>0?"watch":"ok",ref:`Hesitations ${fs.hes||0} · line touches ${fs.touch||0} · sequence errors ${fs.seq||0}`,why:"Errors during the stepping pattern point to sequencing or attention lapses."});
+      if(isFinite(fs.cw)&&isFinite(fs.acw)){ const gap=Math.abs(fs.cw-fs.acw)/Math.max(fs.cw,fs.acw)*100; add({id:"ph",cl:3,test:"FSST",label:"Clockwise vs anti-clockwise gap",val:gap,unit:"%",dec:1,seg:SEG.lo(0,30,15,15),lo:0,hi:30,st:gap>15?"flag":"ok",ref:"A gap above 15% is flagged",why:"Stepping was faster in one direction than the other."}); } }
+    if(db){ score("gsym",3,"DB EMG","Gait symmetry",db.gaitSym,"Left and right sides were not working evenly during walking."); score("svar",3,"DB EMG","Step variability (muscle pattern)",db.stepVar,"Step-to-step muscle activation varied a lot.");
+      const rat=(id,test,label,v,why)=>add({id,cl:3,test,label,val:v,unit:"",dec:2,seg:SEG.ratio(),lo:0,hi:2.2,st:stRatio(v),ref:"Normal 0.75–1.33 · flag below 0.65 or above 1.54",why});
+      const co=(id,test,v)=>add({id,cl:3,test,label:"Quad–calf co-activation index",val:v,unit:"",dec:2,seg:SEG.lo(0,1,.45,.65),lo:0,hi:1,st:v>.65?"flag":v>.45?"watch":"ok",ref:"Normal up to 0.45 · flag above 0.65",why:"Quads and calves were active together more than normal, a stiff strategy linked with fallers."});
+      rat("dq","DB EMG","Quad symmetry ratio (R/L, walking)",db.quadSym,"Right and left thigh muscles shared the work unevenly."); rat("dc","DB EMG","Calf symmetry ratio (R/L, walking)",db.calfSym,"Right and left calf muscles shared the work unevenly."); co("dco","DB EMG",db.coact); }
+    if(ttt){ const rat=(id,label,v,why)=>add({id,cl:3,test:"TTT EMG",label,val:v,unit:"",dec:2,seg:SEG.ratio(),lo:0,hi:2.2,st:stRatio(v),ref:"Normal 0.75–1.33 · flag below 0.65 or above 1.54",why});
+      rat("tq","Quad symmetry ratio (R/L, terrain)",ttt.quadSym,"Thigh muscle activity differed strongly between legs on terrain."); rat("tc","Calf symmetry ratio (R/L, terrain)",ttt.calfSym,"Calf muscle activity differed strongly between legs on terrain.");
+      add({id:"tco",cl:3,test:"TTT EMG",label:"Quad–calf co-activation index",val:ttt.coact,unit:"",dec:2,seg:SEG.lo(0,1,.45,.65),lo:0,hi:1,st:ttt.coact>.65?"flag":ttt.coact>.45?"watch":"ok",ref:"Normal up to 0.45 · flag above 0.65",why:"Slightly stiff co-activation on terrain."}); }
+    // contributing factors
+    if(mv){
+      add({id:"mlp",cl:4,test:"MVC",label:"Left leg-press strength (peer percentile)",val:mv.Lp,unit:"th",dec:0,txt:`${mv.L} kg · ${ordinal(mv.Lp)} pct`,seg:SEG.hi(0,100,2.5,16),lo:0,hi:100,st:stPct(mv.Lp),ref:"Percentile against age/sex peers; flagged at 2nd percentile or below, watch below 16th (1 SD)",why:"Leg strength is far below peers, which reduces the ability to recover from a loss of balance."});
+      add({id:"mrp",cl:4,test:"MVC",label:"Right leg-press strength (peer percentile)",val:mv.Rp,unit:"th",dec:0,txt:`${mv.R} kg · ${ordinal(mv.Rp)} pct`,seg:SEG.hi(0,100,2.5,16),lo:0,hi:100,st:stPct(mv.Rp),ref:"Percentile against age/sex peers; flagged at 2nd percentile or below, watch below 16th (1 SD)",why:"Leg strength is far below peers, which reduces the ability to recover from a loss of balance."});
+      add({id:"mas",cl:4,test:"MVC",label:"Leg-press left–right asymmetry",val:mv.asym,unit:"%",dec:1,seg:SEG.lo(0,40,15,30),lo:0,hi:40,st:stAsym(mv.asym),ref:"Under 15% normal · 15–29% mild · 30% or more significant deficit",why:"One leg is notably weaker than the other."});
+      add({id:"mca",cl:4,test:"MVC",label:"Calf-raise left–right asymmetry",val:mv.calfAsym,unit:"%",dec:1,seg:SEG.lo(0,40,15,30),lo:0,hi:40,st:stAsym(mv.calfAsym),ref:"Under 15% normal · 15–29% mild · 30% or more significant deficit",why:"One calf is notably weaker than the other."}); }
+    if(mm){ const ok30=mm.den===30;
+      add({id:"mm",cl:5,test:"MMSE",label:"MMSE total (as printed)",val:mm.total,unit:"/"+mm.den,dec:0,seg:ok30?SEG.hi(0,30,18,24):null,lo:0,hi:30,st:ok30?(mm.total>=24?"ok":mm.total>=18?"watch":"flag"):"info",ref:ok30?"24 or more normal · 18–23 mild impairment · 17 or less severe":`Printed out of ${mm.den}, not the standard 30, so the cut-offs cannot be applied`,why:"Cognitive screening score is below the normal range, which can affect attention while walking."}); }
+    return {M,hd,fs,tug,bz,db,ttt,mv,mm,sts};
+  }
+
+  function summarise(M){
+    const cl=CLUSTERS.map((c,i)=>{ const m=M.filter(x=>x.cl===i&&x.st!=="info"), n=m.length, ok=m.filter(x=>x.st==="ok").length, wa=m.filter(x=>x.st==="watch").length, fl=m.filter(x=>x.st==="flag").length;
+      const pct=n?ok/n*100:0, lvl=!n?"nodata":(fl>0&&pct<50)?"priority":(fl>0||wa>0)?"watch":"inrange"; return {...c,i,m,tot:n,ok,wa,fl,pct,lvl}; });
+    return cl;
+  }
+  const LV={priority:{t:"PRIORITY GAP",c:"flag"},watch:{t:"WATCH",c:"watch"},inrange:{t:"IN RANGE",c:"ok"},nodata:{t:"NO DATA",c:"info"}};
+  const FOCUS=[
+    "Supervised static-stance progressions (feet together, tandem, eyes closed, soft surface), plus hip and trunk strengthening. Re-check with the SmartBalance Romberg test.",
+    "Walking-speed and step-training work, sit-to-stand and lower-limb strength training, and turning practice. Confirm gait speed by observation.",
+    "Varied-surface and sensory-challenge practice (uneven ground, foam, dual-task walking). Check footwear, foot sensation and vision.",
+    "Agility and stepping-pattern drills, reaction-based tasks, and exercises that even out left–right muscle work."
+  ];
+
+  /* ---------- rendering helpers ---------- */
+  const stName={ok:"In range",watch:"Watch",flag:"Flagged",info:"Context only"};
+  const valTxt=m=>{ if(m.txt) return m.txt; const u=m.unit||""; return fx(m.val,m.dec)+(!u||u==="th"?"":(/^[%°\/]/.test(u)?u:" "+u)); };
+  const zone=m=>{ if(!m.seg) return "<span></span>"; const sp=m.hi-m.lo, p=v=>Math.max(0,Math.min(100,(v-m.lo)/sp*100));
+    return `<span class="p14f-zb" aria-hidden="true">${m.seg.map(s=>`<i class="${s[2]}" style="left:${p(s[0]).toFixed(2)}%;width:${(p(s[1])-p(s[0])).toFixed(2)}%"></i>`).join("")}<b style="left:${p(m.val).toFixed(2)}%"></b></span>`; };
+  const row=m=>`<div class="p14f-mr s-${m.st}" data-t="${esc(m.test)}" title="${esc(m.ref)}"><span class="p14f-dot"></span><span class="p14f-ml">${esc(m.label)}<small>${esc(m.test.toUpperCase())}</small></span>${zone(m)}<span class="p14f-mv">${esc(valTxt(m))}</span>${m.st!=="ok"&&m.st!=="info"?`<span class="p14f-mw">${esc(m.why)}</span>`:""}</div>`;
+  // severity 0 (comfortably in range) .. 1 (far beyond the flag line), placed by each measure's own cut-offs
+  const sev=m=>{ if(!m.seg) return m.st==="flag"?.9:.1; const R={g:0,a:1,r:2}, base={g:0,a:1/3,r:2/3}, S=m.seg, v=Math.max(m.lo,Math.min(m.hi,m.val));
+    let k=S.findIndex(s=>v>=s[0]&&v<=s[1]&&s[1]>s[0]); if(k<0) k=S.findIndex(s=>v<=s[1]); if(k<0) k=S.length-1;
+    const s=S[k], w=s[1]-s[0]||1, L=S[k-1], Rr=S[k+1], rl=L?R[L[2]]:-1, rr=Rr?R[Rr[2]]:-1, me=R[s[2]]; let f=0;
+    if(s[2]==="r"){ f=(rr>=0&&rr<me)?(v-s[0])/w:(rl>=0&&rl<me)?(s[1]-v)/w:.5; if(rr<0&&rl>=0) f=(v-s[0])/w; if(rl<0&&rr>=0) f=(s[1]-v)/w; if(rl>=0&&rr<0) f=(s[1]-v)/w; }
+    else{ const bl=rl>me, br=rr>me; f=bl&&br?Math.abs(v-(s[0]+s[1])/2)/(w/2):br?(v-s[0])/w:bl?(s[1]-v)/w:0; }
+    return Math.max(0,Math.min(1,base[s[2]]+Math.max(0,Math.min(1,f))/3)); };
+
+  function radar(cl){
+    const cx=130,cy=118,R=82, ax=[[0,-1],[1,0],[0,1],[-1,0]];
+    let s=`<svg class="p14f-radar" viewBox="-44 0 348 244" role="img" aria-label="Share of measures in range: ${cl.map(c=>`${c.n} ${c.tot?Math.round(c.pct)+" percent":"no data"}`).join(", ")}">`;
+    [25,50,75,100].forEach(r=>{ s+=`<polygon points="${ax.map(a=>`${cx+a[0]*R*r/100},${cy+a[1]*R*r/100}`).join(" ")}" fill="none" stroke="rgba(31,214,255,${r===100?.5:.18})"/>`; });
+    ax.forEach(a=>{ s+=`<line x1="${cx}" y1="${cy}" x2="${cx+a[0]*R}" y2="${cy+a[1]*R}" stroke="rgba(31,214,255,.22)"/>`; });
+    const pts=cl.map((c,i)=>[cx+ax[i][0]*c.pct/100*R,cy+ax[i][1]*c.pct/100*R]);
+    s+=`<polygon points="${pts.map(p=>p.join(",")).join(" ")}" fill="rgba(255,138,31,.25)" stroke="var(--orange)" stroke-width="2" stroke-linejoin="round"/>`;
+    pts.forEach(p=>{ s+=`<circle cx="${p[0]}" cy="${p[1]}" r="4" fill="var(--orange)"/>`; });
+    const lab=[[cx,12,"middle"],[cx+R+10,cy+3,"start"],[cx,cy+R+20,"middle"],[cx-R-10,cy+3,"end"]];
+    cl.forEach((c,i)=>{ const L=lab[i], nm=c.n.split(" "); s+=nm.map((w,j)=>`<text x="${L[0]}" y="${L[1]+j*10}" text-anchor="${L[2]}" font-size="8" style="fill:var(--text);font-weight:700">${w}</text>`).join("")+`<text x="${L[0]}" y="${L[1]+nm.length*10}" text-anchor="${L[2]}" font-size="8" style="fill:var(--orange)">${c.tot?Math.round(c.pct)+"%":"–"}</text>`; });
+    return s+"</svg>";
+  }
+  const HMCOLS=[["BlazePod","BLAZE-POD"],["FSST","FSST"],["TUG","TUG"],["STS","SIT-TO-STAND"],["DB EMG","WALK EMG"],["TTT EMG","TERRAIN EMG"]];
+  function heatmap(cl,M){
+    const cols=HMCOLS.filter(h=>M.some(m=>m.cl<4&&m.test===h[0])); const n=cols.length+1;
+    let h=`<div class="p14f-hm" style="--n:${n}" role="group" aria-label="Heatmap of measure status by domain and test"><span></span>${cols.map(c=>`<span class="p14f-hh">${c[1]}</span>`).join("")}<span class="p14f-hh">ALL</span>`;
+    cl.forEach(c=>{ h+=`<span class="p14f-hr">${c.n}</span>`;
+      cols.forEach(co=>{ const ms=c.m.filter(m=>m.test===co[0]); if(!ms.length){ h+=`<span class="p14f-hc e">–</span>`; return; }
+        const w=ms.some(m=>m.st==="flag")?"flag":ms.some(m=>m.st==="watch")?"watch":"ok", ok=ms.filter(m=>m.st==="ok").length;
+        h+=`<button type="button" class="p14f-hc s-${w}" data-d="${c.i}" data-t="${esc(co[0])}" aria-label="${c.n}, ${co[1]}: ${ok} of ${ms.length} measures in range. Show details.">${ok}/${ms.length}</button>`; });
+      const w=c.lvl==="priority"?"flag":c.lvl==="watch"?"watch":c.lvl==="inrange"?"ok":"info";
+      h+=c.tot?`<button type="button" class="p14f-hc s-${w}" data-d="${c.i}" style="outline:2px solid rgba(255,255,255,.5);outline-offset:-2px" aria-label="${c.n}: ${c.ok} of ${c.tot} measures in range. Show details.">${Math.round(c.pct)}%</button>`:`<span class="p14f-hc e">–</span>`; });
+    return h+`</div><div class="p14f-lg"><span class="s-ok"><i></i>All in range</span><span class="s-watch"><i></i>Watch</span><span class="s-flag"><i></i>At least one flagged</span><span>Cells show measures in range / measures. Tap a cell for detail.</span></div>`;
+  }
+  function gapStrip(cl){
+    const W=620,rowH=46,top=8,x0=130,x1=W-14,X=t=>x0+t*(x1-x0), H=top+rowH*cl.length+26;
+    let s=`<svg class="p14f-svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Each dot is one measure placed by its own cut-offs, from comfortably in range on the left to beyond the flag line on the right">`;
+    [["ok",0,1/3],["wa",1/3,2/3],["fl",2/3,1]].forEach(z=>{ s+=`<rect x="${X(z[1])}" y="${top}" width="${X(z[2])-X(z[1])}" height="${rowH*cl.length}" fill="var(--${z[0]})" opacity=".09"/>`; });
+    [1/3,2/3].forEach(t=>{ s+=`<line x1="${X(t)}" x2="${X(t)}" y1="${top}" y2="${top+rowH*cl.length}" stroke="rgba(217,237,246,.25)" stroke-dasharray="3 4"/>`; });
+    cl.forEach((c,i)=>{ const cy=top+rowH*i+rowH/2; s+=`<line x1="${x0}" x2="${x1}" y1="${cy}" y2="${cy}" stroke="rgba(31,214,255,.15)"/><text x="${x0-10}" y="${cy+3}" text-anchor="end" font-size="9" style="fill:var(--text);font-weight:700">${c.n.split(" ")[0]}</text>`;
+      const pts=c.m.map(m=>({m,t:sev(m)})).sort((a,b)=>a.t-b.t); let last=-9,lane=0;
+      pts.forEach(p=>{ const x=X(p.t); lane=(x-last<11)?(lane+1)%3:0; last=x; const y=cy+(lane-1)*11;
+        s+=`<circle class="dot s-${p.m.st}" cx="${x.toFixed(1)}" cy="${y}" r="5.5" fill="var(--cc)" fill-opacity=".92"><title>${esc(p.m.label)}: ${esc(valTxt(p.m))} (${stName[p.m.st]})</title></circle>`; }); });
+    const ay=top+rowH*cl.length+16;
+    s+=`<text x="${X(1/6)}" y="${ay}" text-anchor="middle" font-size="8">IN RANGE</text><text x="${X(.5)}" y="${ay}" text-anchor="middle" font-size="8">WATCH</text><text x="${X(5/6)}" y="${ay}" text-anchor="middle" font-size="8">BEYOND FLAG LINE</text>`;
+    return s+"</svg>";
+  }
+  function asymChart(F){
+    const P=[]; const d=k=>F[k]&&F[k].d;
+    if(d("mvc")){ const v=d("mvc"); P.push(["Leg-press strength",v.L,v.R,true]); if(isFinite(v.calfL)) P.push(["Calf-raise strength",v.calfL,v.calfR,true]); }
+    if(d("tug")){ const v=d("tug"); P.push(["TUG stride length",v.lsl,v.rsl]); }
+    [["db","Walking"],["ttt","Terrain"]].forEach(([k,n])=>{ const v=d(k); if(v&&v.rms.lq&&v.rms.rq){ P.push([`Quad EMG · ${n}`,v.rms.lq.rms,v.rms.rq.rms]); if(v.rms.lc&&v.rms.rc) P.push([`Calf EMG · ${n}`,v.rms.lc.rms,v.rms.rc.rms]); } });
+    const rows=P.filter(p=>isFinite(p[1])&&isFinite(p[2])&&Math.max(p[1],p[2])>0); if(!rows.length) return '<p class="p14f-note">No left–right data available.</p>';
+    const W=620,rh=30,top=22,x0=150,x1=W-40,C=(x0+x1)/2,sc=(x1-x0)/2/60, H=top+rh*rows.length+8; // axis ±60%
+    let s=`<svg class="p14f-svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Left–right asymmetry for each paired measure">`;
+    s+=`<rect x="${C-15*sc}" y="${top-6}" width="${30*sc}" height="${rh*rows.length+6}" fill="var(--ok)" opacity=".1"/><line x1="${C}" x2="${C}" y1="${top-8}" y2="${H-4}" stroke="rgba(217,237,246,.5)"/>`;
+    s+=`<text x="${C-8}" y="12" text-anchor="end" font-size="8">◂ LEFT HIGHER</text><text x="${C+8}" y="12" font-size="8">RIGHT HIGHER ▸</text>`;
+    rows.forEach((p,i)=>{ const cy=top+rh*i+rh/2, df=(p[2]-p[1])/Math.max(p[1],p[2])*100, a=Math.abs(df), clip=a>60, x=C+Math.max(-60,Math.min(60,df))*sc;
+      const stt=p[3]?stAsym(a):"info", col=stt==="ok"?"var(--ok)":stt==="watch"?"var(--wa)":stt==="flag"?"var(--fl)":"var(--blue)";
+      s+=`<text x="${x0-10}" y="${cy+3}" text-anchor="end" font-size="8.5" style="fill:var(--text)">${esc(p[0])}</text><line x1="${C}" x2="${x}" y1="${cy}" y2="${cy}" stroke="${col}" stroke-width="3" opacity=".8"/><circle class="dot" cx="${x}" cy="${cy}" r="6" fill="${col}"><title>${esc(p[0])}: left ${fx(p[1],2)}, right ${fx(p[2],2)} (${fx(a,0)}% difference)</title></circle>`;
+      const inner=a>40, lx=inner?(df<0?x+11:x-11):(df<0?x-11:x+11), la=inner?(df<0?"start":"end"):(df<0?"end":"start");
+      s+=`<text x="${lx}" y="${cy+3}" text-anchor="${la}" font-size="8.5" style="fill:${col};font-weight:700">${fx(a,0)}%${clip?" ▸":""}</text>`; });
+    return s+"</svg>";
+  }
+  const SHORT={ttt:"Terrain muscle score",fst:"Trunk stability score",db:"Walking muscle score",steph:"Step-height control",tugv:"Gait velocity",tugs:"Stride length",svar:"Step variability (EMG)",cv:"Step-time variability",dc:"Calf symmetry (walking)",dq:"Quad symmetry (walking)",tq:"Quad symmetry (terrain)",tc:"Calf symmetry (terrain)",dco:"Co-activation (walking)",tco:"Co-activation (terrain)",ev:"FSST errors",ph:"CW vs ACW gap",gsym:"Gait symmetry"};
+
+  function analyse(scroll){
+    const F=st.files, have=TESTS.filter(t=>F[t.k]); if(have.filter(t=>!t.opt).length<REQ) return;
+    const {M,hd,fs,tug,bz,db,ttt,mv,mm}=build(F), cl=summarise(M);
+    const prio=cl.filter(c=>c.lvl==="priority").length, wat=cl.filter(c=>c.lvl==="watch").length, nd=cl.filter(c=>c.tot).length;
+    const labels=[]; if(tug&&tug.risk) labels.push(["TUG",tug.risk]); if(fs&&fs.risk) labels.push(["FSST",fs.risk]); if(bz&&bz.band) labels.push(["BLAZEPOD",bz.band]);
+    const stationHigh=labels.some(l=>/high/i.test(l[1])), stationMod=labels.some(l=>/moderate/i.test(l[1]));
+    const overall=(stationHigh||prio>=3)?"ELEVATED":(prio>=1||stationMod||wat>=2)?"MODERATE":"LOWER";
+    const vc={ELEVATED:"#ff7a7a",MODERATE:"#ffd23f",LOWER:"#5fd39a"}[overall];
+    const flags=M.filter(m=>m.st==="flag"&&m.cl<4), watches=M.filter(m=>m.st==="watch"&&m.cl<4), nM=M.filter(m=>m.cl<4&&m.st!=="info").length;
+    const dq=dataChecks({hd,fs,tug,bz,db,ttt,mv,mm,sts:F.sts&&F.sts.d,M});
+    const ini=hd.name.split(/\s+/).filter(Boolean).map(w=>w[0].toUpperCase()+".").join("");
+    const allLow=labels.length&&labels.every(l=>/low/i.test(l[1]));
+    const sub=allLow&&prio>=1?"The single-score station labels read low risk, but the detailed measures show gaps those labels do not capture.":allLow?"The station labels also read low risk.":"";
+    const worst=[...cl].filter(c=>c.tot).sort((a,b)=>a.pct-b.pct);
+    const tabs=[...cl.map(c=>({i:c.i,n:c.n,w:c.lvl==="priority"?"flag":c.lvl==="watch"?"watch":c.lvl==="inrange"?"ok":"info"})),
+      {i:4,n:"STRENGTH",w:tileState(M,4,!!mv)},{i:5,n:"COGNITION",w:tileState(M,5,!!mm)}];
+    const html=`
+    <div class="p14f-act"><button type="button" class="p14f-btn ghost sm" data-x="print">PRINT / SAVE PDF</button></div>
+    <div class="p14f-hero" style="--vc:${vc};--vg:${vc}55">
+      <div><p class="p14f-who">SUBJECT <b>${esc(ini)}</b> · ${hd.age} YRS · ${hd.sex.toUpperCase()}${hd.date?" · "+esc(hd.date).toUpperCase():""}</p>
+        <h4 class="p14f-vt">${overall} FALL-RISK INDICATION</h4>
+        <p class="p14f-vs">${prio} of ${nd} domains show a priority gap${worst.length&&prio?`, led by <b>${worst[0].n.toLowerCase()}</b>`:""}.</p>
+        ${sub?`<p class="p14f-vs2">${esc(sub)}</p>`:""}
+        <div class="p14f-kp"><div class="p14f-k s-flag"><b>${flags.length}</b><span>FLAGGED</span></div><div class="p14f-k s-watch"><b>${watches.length}</b><span>WATCH</span></div><div class="p14f-k s-ok"><b>${nM-flags.length-watches.length}</b><span>IN RANGE</span></div></div>
+        <div class="p14f-st">${labels.map(l=>`<span class="p14f-chip s-${/low/i.test(l[1])?"ok":/high/i.test(l[1])?"flag":"watch"}"><i></i>${l[0]}: ${esc(l[1].toUpperCase())}</span>`).join("")}${dq.length?`<button type="button" class="p14f-chip s-watch" data-x="dq"><i></i>${dq.length} DATA CHECKS</button>`:""}</div></div>
+      <div><div id="p14f-radar">${radar(cl)}</div><p class="p14f-cap">SHARE OF MEASURES IN RANGE</p></div>
+    </div>
+
+    <div class="p14f-sec"><h4 class="p14f-h"><i>01</i>WHERE THE GAPS ARE</h4><div class="p14f-two">
+      <div class="p14f-pn"><h5>DOMAIN × TEST HEATMAP</h5><p class="p14f-sb2">Which tests drive each domain's gap.</p>${heatmap(cl,M)}</div>
+      <div class="p14f-pn"><h5>GAP PROFILE</h5><p class="p14f-sb2">Every measure as one dot, placed by its own cut-offs.</p>${gapStrip(cl)}</div></div></div>
+
+    <div class="p14f-sec" id="p14f-detail"><h4 class="p14f-h"><i>02</i>DOMAIN DETAIL</h4><div class="p14f-pn">
+      <div class="p14f-tabs" role="group" aria-label="Choose a domain">${tabs.map((t,j)=>`<button type="button" class="p14f-tab s-${t.w}" data-tab="${t.i}" aria-pressed="${j===worstIdx(cl)}"><i></i>${t.n}</button>`).join("")}</div>
+      <div id="p14f-pane"></div></div></div>
+
+    <div class="p14f-sec"><h4 class="p14f-h"><i>03</i>LEFT–RIGHT BALANCE AND CONTRIBUTORS</h4><div class="p14f-two">
+      <div class="p14f-pn"><h5>LEFT–RIGHT ASYMMETRY</h5><p class="p14f-sb2">Shaded band = under 15% difference (normal for strength).</p>${asymChart(F)}</div>
+      <div class="p14f-pn"><h5>STRENGTH AND COGNITION</h5><p class="p14f-sb2">Contributing factors, not scored inside the four domains.</p><div class="p14f-tl">${contrib(M,mv,mm)}</div></div></div></div>
+
+    <div class="p14f-sec"><h4 class="p14f-h"><i>04</i>WHERE TO FOCUS</h4><div class="p14f-fg">
+      ${worst.filter(c=>c.lvl!=="inrange").map(c=>{ const g=c.m.filter(m=>m.st==="flag"), w=c.m.filter(m=>m.st==="watch"), top=[...g,...w].slice(0,3); return `<div class="p14f-fc s-${c.lvl==="priority"?"flag":"watch"}"><h5>${c.n}<span>${c.fl} FLAGGED · ${c.wa} WATCH</span></h5><ul>${top.map(m=>`<li class="${m.st==="watch"?"w":""}">${esc(SHORT[m.id]||m.label)}</li>`).join("")}${g.length+w.length>3?`<li class="w">+${g.length+w.length-3} more</li>`:""}</ul><p><b>FOCUS</b>${FOCUS[c.i]}</p></div>`; }).join("")||'<p class="p14f-note">No domain needs a specific focus. Maintain current activity and re-test periodically.</p>'}</div></div>
+
+    ${dq.length?`<details class="p14f-det" id="p14f-dq"><summary>${dq.length} DATA-QUALITY CHECKS TO REVIEW FIRST</summary><div><ul class="p14f-dq">${dq.map(t=>`<li>${t}</li>`).join("")}</ul></div></details>`:""}
+    <details class="p14f-det"><summary>HOW THIS ANALYSIS WORKS</summary><div>
+      <p><b>Cut-offs.</b> Every status uses thresholds printed in your own FallSafe+ reports (TUG over 12 s, FSST bands, EMG symmetry ratios, MVC asymmetry bands, gait velocity below 1.0 and 0.8 m/s). Peer-relative 0–100 scores use the BlazePod bands: 65 or more good, 40–64 monitor, below 40 flagged.</p>
+      <p><b>Domains.</b> Measures are assigned by what they mainly reflect: static balance (stillness, trunk control), dynamic balance (gait, stepping, chair stands), proprioception (terrain and surface adaptation, drift) and coordination (reaction, timing, sequencing, symmetry). FallSafe+ does not assign these domains itself. Strength (MVC) and cognition (MMSE) are shown as contributors.</p>
+      <p><b>Overall indication.</b> ELEVATED if any station label is high risk or three or more domains have a priority gap; MODERATE if one or two do, a station label is moderate, or two or more need watching; otherwise LOWER. A domain is a priority gap when at least one measure is flagged and fewer than half are in range. This is a screening summary, not a validated clinical score.</p>
+      <p><b>Gap profile.</b> Each dot is placed within its own in-range / watch / flag bands, so measures with different units can share one axis.</p>
+      <p><b>Reports analysed:</b> ${have.map(t=>esc(t.label)).join(", ")}.</p></div></details>
+    <p class="p14f-disc"><b>IMPORTANT</b>Educational summary of screening results, not a diagnosis or medical assessment. Please discuss results with your facilitator or a healthcare professional.</p>`;
+    out.innerHTML=html; out.hidden=false; out.classList.remove("show"); void out.offsetWidth; out.classList.add("show");
+    const paneFor=i=>{ const ms=M.filter(m=>m.cl===i), c=i<4?cl[i]:null, pane=$("p14f-pane");
+      const f=i===4?mv:i===5?mm:true;
+      pane.innerHTML=(c?`<p class="p14f-dd">${c.desc}</p>`:`<p class="p14f-dd">${i===4?"Leg strength and left–right strength balance (MVC).":"Cognitive screening (MMSE)."}</p>`)+(f&&ms.length?ms.map(m=>row({...m,label:SHORT[m.id]||m.label})).join(""):`<p class="p14f-note">${f?"No measures available.":(i===5?"MMSE was not uploaded, so the analysis was completed without cognition.":"Not uploaded.")}</p>`); };
+    const sel=i=>{ out.querySelectorAll(".p14f-tab").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.tab===i)); paneFor(i); };
+    sel(Math.max(0,worstIdx(cl)));
+    out.onclick=e=>{ const b=e.target.closest("button"); if(!b||!out.contains(b)) return;
+      if(b.dataset.tab!==undefined) return sel(+b.dataset.tab);
+      if(b.dataset.d!==undefined){ sel(+b.dataset.d); const t=b.dataset.t; if(t) out.querySelectorAll("#p14f-pane .p14f-mr").forEach(r=>r.classList.toggle("hl",r.dataset.t===t)); $("p14f-detail").scrollIntoView({block:"start",behavior:RM?"auto":"smooth"}); return; }
+      if(b.dataset.x==="dq"){ const d=$("p14f-dq"); if(d){ d.open=true; d.scrollIntoView({block:"center",behavior:RM?"auto":"smooth"}); } return; }
+      if(b.dataset.x==="print") window.print(); };
+    if(scroll) out.scrollIntoView({block:"start",behavior:RM?"auto":"smooth"});
+  }
+  const worstIdx=cl=>{ let b=-1,p=1e9; cl.forEach(c=>{ if(c.tot&&c.pct<p){ p=c.pct; b=c.i; } }); return b<0?0:b; };
+  const tileState=(M,ci,has)=>{ if(!has) return "info"; const ms=M.filter(x=>x.cl===ci); return ms.some(x=>x.st==="flag")?"flag":ms.some(x=>x.st==="watch")?"watch":ms.length&&ms.every(x=>x.st==="ok")?"ok":"info"; };
+  function contrib(M,mv,mm){
+    const t=[]; const st=(ci,has)=>tileState(M,ci,has), nm={flag:"FLAGGED",watch:"WATCH",ok:"IN RANGE",info:"CONTEXT ONLY"};
+    if(mv){ const w=st(4,true); const a=M.find(x=>x.id==="mlp"), b=M.find(x=>x.id==="mrp"); t.push(`<div class="p14f-tile s-${w}"><b>LEG STRENGTH<span>${nm[w]}</span></b><p>Leg press ${mv.L} kg left, ${mv.R} kg right (${ordinal(mv.Lp)} and ${ordinal(mv.Rp)} percentile). Left–right difference ${fx(mv.asym,1)}% (calf ${fx(mv.calfAsym,1)}%).</p></div>`); }
+    else t.push('<div class="p14f-tile s-info"><b>LEG STRENGTH<span>NOT PROVIDED</span></b></div>');
+    if(mm){ const w=st(5,true); t.push(`<div class="p14f-tile s-${w}"><b>COGNITION (MMSE)<span>${nm[w]}</span></b><p>Printed score ${mm.total}/${mm.den}${mm.label?" · "+esc(mm.label):""}.${mm.den!==30?" Scale mismatch, so standard cut-offs were not applied.":""}</p></div>`); }
+    else t.push('<div class="p14f-tile s-info"><b>COGNITION (MMSE)<span>NOT PROVIDED</span></b><p>The analysis was completed without cognition.</p></div>');
+    return t.join("");
+  }
+
+  function dataChecks({hd,fs,tug,bz,db,ttt,mv,mm,sts,M}){
+    const o=[];
+    if(mm){ const over=Object.entries(mm.dom).filter(([k,v])=>v[0]>v[1]).map(([k,v])=>`${k} ${v[0]}/${v[1]}`); if(mm.den!==30) o.push(`<b>MMSE scale:</b> the total is printed out of ${mm.den}, not the standard 30, so the standard cut-offs were not applied. Confirm the scoring in the FallSafe+ app.`); if(over.length) o.push(`<b>MMSE domains:</b> ${esc(over.join(", "))} exceed the maximum for that domain, which suggests a scoring or export error.`); }
+    if(mv){ const lo=Math.max(mv.L,mv.R)<20; if(lo||mv.Lp===0||mv.Rp===0) o.push(`<b>MVC strength:</b> leg-press values of ${mv.L} kg and ${mv.R} kg (0th percentile) are far below what a typical adult produces on this protocol. Check the seat set-up, load calibration and units before drawing conclusions about strength.`); }
+    [["DB",db],["TTT",ttt]].forEach(([n,e])=>{ if(!e) return; const hi=Object.values(e.mvc).some(v=>v>150); if(hi) o.push(`<b>${n} EMG %MVC:</b> values above 100% (up to ${fx(Math.max(...Object.values(e.mvc).filter(isFinite)),0)}%) are not physiologically meaningful. They arise because the MVC reference is missing or very low, so %MVC was not used.`);
+      if(e.quadSym<.3||e.quadSym>3||e.calfSym<.3||e.calfSym>3) o.push(`<b>${n} EMG symmetry:</b> extreme left–right ratios (quad ${fx(e.quadSym,2)}, calf ${fx(e.calfSym,2)}) often come from electrode contact or placement on one side. Re-check the sensors before relying on these.`); });
+    if(fs){ if(isFinite(fs.stepLen)&&fs.stepLen<.2) o.push(`<b>FSST step length:</b> ${fx(fs.stepLen,2)} m is a camera estimate (the report notes typical values of 0.05–0.2 m versus 0.6–0.75 m clinically). Use it only to compare sessions.`); if(isFinite(fs.dsr)&&(fs.dsr>45||fs.dsr<30)) o.push(`<b>FSST double support:</b> ${fx(fs.dsr,0)}% is outside the 30–45% scoring band, which can be a detection artefact in a stepping test.`); }
+    if(tug&&tug.risk&&/low/i.test(tug.risk)&&((tug.vel<.8)||tug.stride<=.64)) o.push(`<b>TUG consistency:</b> the time (${fx(tug.dur,2)} s) is low risk, but the recorded gait velocity (${fx(tug.vel,2)} m/s) and stride length (${fx(tug.stride,2)} m) are in the flagged range. This combination often reflects measurement scaling, so confirm by observing the walk.`);
+    if(sts&&hd.age<60) o.push(`<b>Sit-to-stand norms:</b> the published bands cover ages 60–94. For a ${hd.age}-year-old the 60–64 cut-off is used only as a rough guide; FallSafe+ camera counts are also not yet validated against the published protocol.`);
+    if(bz&&isFinite(bz.norm)){ const T={Male:[[18,650],[30,700],[40,760],[50,830],[60,920],[70,1020],[80,1150],[90,1300]],Female:[[18,690],[30,740],[40,800],[50,875],[60,965],[70,1070],[80,1200],[90,1350]]}[hd.sex]; let nv=T[0][1]; T.forEach(r=>{ if(hd.age>=r[0]) nv=r[1]; }); if(Math.abs(nv-bz.norm)>5) o.push(`<b>BlazePod norm:</b> the report prints a peer norm of ${fx(bz.norm,0)} ms, but its own table gives ${nv} ms for a ${hd.sex.toLowerCase()} aged ${hd.age}. The percentile may be slightly off.`); }
+    return o;
+  }
+  refresh();
 })();
 
 
