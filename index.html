@@ -7714,7 +7714,7 @@ const HURYT=(()=>{
     {k:"ttt", label:"TERRAIN TREK EMG",      rx:/terrain trek/i},
     {k:"fsst",label:"FSST",                  rx:/\bfsst\b/i},
     {k:"mmse",label:"MMSE",                  rx:/\bmmse\b/i, opt:true},
-    {k:"mvc", label:"MVC LEG STRENGTH",      rx:/mvc leg strength/i},
+    {k:"mvc", label:"MVC LEG STRENGTH",      rx:/mvc leg strength/i, opt:true},
     {k:"sts", label:"SIT-TO-STAND",          rx:/sit-to-stand/i},
     {k:"tug", label:"TUG",                   rx:/\btug\b/i}
   ];
@@ -8043,7 +8043,7 @@ const HURYT=(()=>{
   function contrib(M,mv,mm){
     const t=[]; const st=(ci,has)=>tileState(M,ci,has), nm={flag:"FLAGGED",watch:"WATCH",ok:"IN RANGE",info:"CONTEXT ONLY"};
     if(mv){ const w=st(4,true); const a=M.find(x=>x.id==="mlp"), b=M.find(x=>x.id==="mrp"); t.push(`<div class="p14f-tile s-${w}"><b>LEG STRENGTH<span>${nm[w]}</span></b><p>Leg press ${mv.L} kg left, ${mv.R} kg right (${ordinal(mv.Lp)} and ${ordinal(mv.Rp)} percentile). Left–right difference ${fx(mv.asym,1)}% (calf ${fx(mv.calfAsym,1)}%).</p></div>`); }
-    else t.push('<div class="p14f-tile s-info"><b>LEG STRENGTH<span>NOT PROVIDED</span></b></div>');
+    else t.push('<div class="p14f-tile s-info"><b>LEG STRENGTH<span>NOT PROVIDED</span></b><p>The analysis was completed without strength.</p></div>');
     if(mm){ const w=st(5,true); t.push(`<div class="p14f-tile s-${w}"><b>COGNITION (MMSE)<span>${nm[w]}</span></b><p>Printed score ${mm.total}/${mm.den}${mm.label?" · "+esc(mm.label):""}.${mm.den!==30?" Scale mismatch, so standard cut-offs were not applied.":""}</p></div>`); }
     else t.push('<div class="p14f-tile s-info"><b>COGNITION (MMSE)<span>NOT PROVIDED</span></b><p>The analysis was completed without cognition.</p></div>');
     return t.join("");
